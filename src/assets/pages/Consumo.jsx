@@ -1,22 +1,7 @@
+import React, { useEffect, useState } from "react";
 import "./styles/consumo.css";
 
-export default function Consumo() {
-  return (
-    <div className="consumo">
-      <h1 className="consumo__titulo">Personajes de Rick and Morty</h1>
-
-      <p className="consumo__descripcion">
-        Esta sección consume la API oficial de Rick and Morty y muestra información en tiempo real.
-      </p>
-
-      <PersonajesLista />
-    </div>
-  );
-}
-
-// Componente separado para mayor orden
-import React, { useEffect, useState } from "react";
-
+// Primero defines el componente PersonajesLista
 function PersonajesLista() {
   const [characters, setCharacters] = useState([]);
 
@@ -40,6 +25,21 @@ function PersonajesLista() {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+// Luego defines el componente principal que lo usa
+export default function Consumo() {
+  return (
+    <div className="consumo">
+      <h1 className="consumo__titulo">Personajes de Rick and Morty</h1>
+
+      <p className="consumo__descripcion">
+        Esta sección consume la API oficial de Rick and Morty y muestra información en tiempo real.
+      </p>
+
+      <PersonajesLista />
     </div>
   );
 }

@@ -4,19 +4,23 @@ import "./styles/episodios.css";
 export default function Episodios() {
   const [episodios, setEpisodios] = useState([]);
   const [pagina, setPagina] = useState(1);
-  const [info, setInfo] = useState({});
-  const [imagenes, setImagenes] = useState({}); // aquí guardamos las imágenes
+  const [info, setInfo] = useState(null); // ← Cambiar a null
+  const [imagenes, setImagenes] = useState({});
 
   const cargarEpisodios = async (page = 1) => {
-    const url = `https://rickandmortyapi.com/api/episode?page=${page}`;
-    const res = await fetch(url);
-    const data = await res.json();
+    try {
+      const url = `https://rickandmortyapi.com/api/episode?page=${page}`;
+      const res = await fetch(url);
+      const data = await res.json();
 
-    setEpisodios(data.results);
-    setInfo(data.info);
+      setEpisodios(data.results);
+      setInfo(data.info);
 
-    // Cargar imagen del primer personaje por episodio
-    cargarImagenes(data.results);
+      // Cargar imagen del primer personaje por episodio
+      cargarImagenes(data.results);
+    } catch (error) {
+      console.error("Error al cargar episodios:", error);
+    }
   };
 
   const cargarImagenes = async (lista) => {
@@ -24,10 +28,16 @@ export default function Episodios() {
 
     // Para cada episodio
     for (let episodio of lista) {
-      const personajeURL = episodio.characters[0]; // primer personaje
-      const res = await fetch(personajeURL);
-      const data = await res.json();
-      nuevasImagenes[episodio.id] = data.image; // guardamos la imagen del personaje
+      if (episodio.characters && episodio.characters.length > 0) {
+        const personajeURL = episodio.characters[0];
+        try {
+          const res = await fetch(personajeURL);
+          const data = await res.json();
+          nuevasImagenes[episodio.id] = data.image;
+        } catch (error) {
+          console.error(`Error al cargar personaje para episodio ${episodio.id}:`, error);
+        }
+      }
     }
 
     setImagenes(nuevasImagenes);
@@ -66,17 +76,19 @@ export default function Episodios() {
       </div>
 
       {/* Paginación */}
-      <div className="episodios__paginacion">
-        <button disabled={!info.prev} onClick={() => setPagina(pagina - 1)}>
-          ← Anterior
-        </button>
+      {info && (
+        <div className="episodios__paginacion">
+          <button disabled={!info.prev} onClick={() => setPagina(pagina - 1)}>
+            ← Anterior
+          </button>
 
-        <span>Página {pagina}</span>
+          <span>Página {pagina}</span>
 
-        <button disabled={!info.next} onClick={() => setPagina(pagina + 1)}>
-          Siguiente →
-        </button>
-      </div>
+          <button disabled={!info.next} onClick={() => setPagina(pagina + 1)}>
+            Siguiente →
+          </button>
+        </div>
+      )}
     </div>
   );
 }
