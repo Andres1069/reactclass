@@ -1,0 +1,42 @@
+/* CONTENEDOR PRINCIPAL DEL HEADER */
+.header {
+  width: 100%;
+  padding: 15px 40px;
+  background: #004A91;
+  color: white;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  /* Hace que siga arriba mientras haces scroll */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  /* Evita que el menú se corte */
+  overflow: visible;
+}
+
+/* LOGO / TÍTULO */
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  white-space: nowrap; /* evita que se parta el texto */
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .header {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+  }
+}
