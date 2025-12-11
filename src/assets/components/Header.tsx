@@ -4,7 +4,7 @@ import "./styles/header.css";
 export default function Header() {
   return (
     <header className="header">
-      <div className="logo">Mi Portfolio</div>
+      <div className="logo">Mi Portafolio</div>
       <Navigation />
     </header>
   );
