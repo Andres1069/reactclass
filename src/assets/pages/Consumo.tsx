@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./styles/consumo.css";
 
-// Define la interfaz del personaje
 interface Character {
   id: number;
   name: string;
@@ -10,7 +9,6 @@ interface Character {
   image: string;
 }
 
-// Primero defines el componente PersonajesLista
 function PersonajesLista() {
   const [characters, setCharacters] = useState<Character[]>([]);
 
@@ -38,8 +36,12 @@ function PersonajesLista() {
   );
 }
 
-// Luego defines el componente principal que lo usa
 export default function Consumo() {
+  // 👇 AGREGA ESTO AQUÍ
+  useEffect(() => {
+    document.title = "Personajes - Rick and Morty";
+  }, []);
+
   return (
     <div className="consumo">
       <h1 className="consumo__titulo">Personajes de Rick and Morty</h1>
