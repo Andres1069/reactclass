@@ -1,5 +1,5 @@
 import "./styles/envio.css";
-import React, { useState } from "react";
+import { useState } from "react";
 
 interface Character {
   id: number;
