@@ -1,10 +1,10 @@
-import "./styles/header.css";
 import Navigation from "./Navigation";
+import "./styles/header.css";
 
 export default function Header() {
   return (
     <header className="header">
-      <h1 className="logo">Mi Portafolio</h1>
+      <div className="logo">Mi Portfolio</div>
       <Navigation />
     </header>
   );

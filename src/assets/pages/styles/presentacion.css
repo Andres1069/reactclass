@@ -1,5 +1,5 @@
 .presentacion {
-  padding: 120px 40px; /* espacio bajo el header */
+  padding: 120px 40px;
   display: flex;
   justify-content: center;
 }
@@ -73,6 +73,8 @@
   font-size: 16px;
   font-weight: 600;
   transition: 0.2s;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-blue {
@@ -93,11 +95,18 @@
   background-color: #000;
 }
 
-/* RESPONSIVE */
+/* ========================================
+   RESPONSIVE - TABLETS GRANDES
+======================================== */
 @media (max-width: 900px) {
+  .presentacion {
+    padding: 100px 30px;
+  }
+
   .presentacion__container {
     flex-direction: column;
     text-align: center;
+    gap: 40px;
   }
 
   .presentacion__texto {
@@ -106,5 +115,172 @@
 
   .presentacion__descripcion {
     margin: 0 auto;
+  }
+
+  .presentacion__botones {
+    justify-content: center;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS
+======================================== */
+@media (max-width: 768px) {
+  .presentacion {
+    padding: 90px 25px;
+  }
+
+  .presentacion__container {
+    gap: 35px;
+  }
+
+  .presentacion__imagen {
+    width: 280px;
+    height: 280px;
+    border: 5px solid #004a91;
+  }
+
+  .presentacion__titulo {
+    font-size: 38px;
+    margin-bottom: 8px;
+  }
+
+  .presentacion__subtitulo {
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+
+  .presentacion__descripcion {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .btn {
+    padding: 11px 22px;
+    font-size: 15px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES
+======================================== */
+@media (max-width: 600px) {
+  .presentacion {
+    padding: 80px 20px;
+  }
+
+  .presentacion__container {
+    gap: 30px;
+  }
+
+  .presentacion__imagen {
+    width: 240px;
+    height: 240px;
+    border: 4px solid #004a91;
+  }
+
+  /* Eliminar hover en móviles */
+  .presentacion__imagen:hover {
+    transform: none;
+  }
+
+  .presentacion__titulo {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .presentacion__subtitulo {
+    font-size: 17px;
+    margin-bottom: 16px;
+  }
+
+  .presentacion__descripcion {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .presentacion__botones {
+    margin-top: 25px;
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 11px 20px;
+    font-size: 15px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES PEQUEÑOS
+======================================== */
+@media (max-width: 480px) {
+  .presentacion {
+    padding: 70px 15px;
+  }
+
+  .presentacion__container {
+    gap: 25px;
+  }
+
+  .presentacion__imagen {
+    width: 200px;
+    height: 200px;
+  }
+
+  .presentacion__titulo {
+    font-size: 28px;
+  }
+
+  .presentacion__subtitulo {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .presentacion__descripcion {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .presentacion__botones {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES EXTRA PEQUEÑOS
+======================================== */
+@media (max-width: 360px) {
+  .presentacion {
+    padding: 60px 12px;
+  }
+
+  .presentacion__imagen {
+    width: 180px;
+    height: 180px;
+  }
+
+  .presentacion__titulo {
+    font-size: 24px;
+  }
+
+  .presentacion__subtitulo {
+    font-size: 15px;
+  }
+
+  .presentacion__descripcion {
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 14px;
   }
 }

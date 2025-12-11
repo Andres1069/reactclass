@@ -46,6 +46,21 @@
   color: #003b7a;
 }
 
+.episodio__card p {
+  font-size: 15px;
+  color: #444;
+  margin: 5px 0;
+}
+
+/* IMAGEN */
+.episodio__img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
 /* PAGINACIÓN */
 .episodios__paginacion {
   margin-top: 30px;
@@ -75,10 +90,169 @@
   background: #005999;
 }
 
-.episodio__img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
+.episodios__paginacion span {
+  font-weight: 600;
+  color: #003b7a;
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS
+======================================== */
+@media (max-width: 768px) {
+  .episodios {
+    padding: 100px 30px;
+  }
+
+  .episodios__titulo {
+    font-size: 32px;
+  }
+
+  .episodios__descripcion {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  .episodios__grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .episodio__card {
+    padding: 18px;
+  }
+
+  .episodio__card h2 {
+    font-size: 20px;
+  }
+
+  .episodio__card p {
+    font-size: 14px;
+  }
+
+  .episodio__img {
+    height: 140px;
+  }
+
+  .episodios__paginacion {
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  .episodios__paginacion button {
+    padding: 9px 16px;
+    font-size: 15px;
+  }
+
+  .episodios__paginacion span {
+    font-size: 15px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES
+======================================== */
+@media (max-width: 600px) {
+  .episodios {
+    padding: 80px 20px;
+  }
+
+  .episodios__titulo {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .episodios__descripcion {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .episodios__grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 18px;
+  }
+
+  .episodio__card {
+    padding: 16px;
+  }
+
+  .episodio__card h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .episodio__card p {
+    font-size: 13px;
+  }
+
+  .episodio__img {
+    height: 130px;
+  }
+
+  .episodios__paginacion {
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .episodios__paginacion button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .episodios__paginacion span {
+    font-size: 14px;
+    width: 100%;
+    order: -1;
+    margin-bottom: 5px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES PEQUEÑOS
+======================================== */
+@media (max-width: 480px) {
+  .episodios {
+    padding: 70px 15px;
+  }
+
+  .episodios__titulo {
+    font-size: 24px;
+  }
+
+  .episodios__descripcion {
+    font-size: 14px;
+  }
+
+  .episodios__grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .episodio__card {
+    padding: 14px;
+  }
+
+  /* Eliminar hover en móviles */
+  .episodio__card:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .episodio__card h2 {
+    font-size: 17px;
+  }
+
+  .episodio__card p {
+    font-size: 13px;
+  }
+
+  .episodio__img {
+    height: 180px;
+  }
+
+  .episodios__paginacion button {
+    padding: 10px 14px;
+    font-size: 13px;
+    flex: 1;
+  }
 }

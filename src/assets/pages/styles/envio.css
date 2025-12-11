@@ -103,18 +103,145 @@
   color: #003b7a;
 }
 
-/* RESPONSIVE */
+/* ========================================
+   RESPONSIVE - TABLETS
+======================================== */
+@media (max-width: 768px) {
+  .envio {
+    padding: 100px 30px;
+  }
+
+  .envio__titulo {
+    font-size: 30px;
+  }
+
+  .envio__descripcion {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  .envio__input {
+    width: 180px;
+    font-size: 15px;
+  }
+
+  .envio__boton {
+    padding: 10px 16px;
+    font-size: 15px;
+  }
+
+  .envio__card {
+    max-width: 100%;
+    padding: 18px;
+  }
+
+  .envio__card h2 {
+    font-size: 22px;
+  }
+
+  .envio__img {
+    height: 240px;
+  }
+
+  .envio__lista li {
+    font-size: 15px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES
+======================================== */
 @media (max-width: 600px) {
+  .envio {
+    padding: 80px 20px;
+  }
+
+  .envio__titulo {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .envio__descripcion {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
   .envio__busqueda {
     flex-direction: column;
     align-items: stretch;
+    gap: 12px;
   }
 
   .envio__input {
     width: 100%;
+    padding: 12px;
   }
 
   .envio__boton {
     width: 100%;
+    padding: 12px;
+  }
+
+  .envio__error {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  .envio__card {
+    margin-top: 20px;
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  .envio__card h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .envio__img {
+    height: 280px;
+  }
+
+  .envio__lista li {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES PEQUEÑOS
+======================================== */
+@media (max-width: 480px) {
+  .envio {
+    padding: 70px 15px;
+  }
+
+  .envio__titulo {
+    font-size: 24px;
+  }
+
+  .envio__descripcion {
+    font-size: 14px;
+  }
+
+  .envio__input,
+  .envio__boton {
+    font-size: 14px;
+  }
+
+  .envio__card {
+    padding: 14px;
+  }
+
+  .envio__card h2 {
+    font-size: 18px;
+  }
+
+  .envio__img {
+    height: 260px;
+  }
+
+  .envio__lista li {
+    font-size: 13px;
   }
 }

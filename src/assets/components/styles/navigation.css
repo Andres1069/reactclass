@@ -1,20 +1,16 @@
+/* NAVEGACIÓN */
 .nav {
   display: flex;
   align-items: center;
 }
 
-/* LISTA DEL MENÚ */
 .nav-list {
   display: flex;
   gap: 25px;
   list-style: none;
   margin: 0;
   padding: 0;
-
-  /* ⭐ IMPORTANTE: permite que los items no se salgan */
   flex-wrap: wrap;
-
-  /* ⭐ Permite que el menú se ajuste sin cortarse */
   max-width: 100%;
   overflow: visible;
 }
@@ -26,9 +22,140 @@
   padding: 8px 12px;
   border-radius: 8px;
   transition: 0.3s;
-  white-space: nowrap; /* Evita cortes raros */
+  white-space: nowrap;
 }
 
 .nav-list li a:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* BOTÓN HAMBURGUESA - OCULTO EN DESKTOP */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* ANIMACIÓN DEL HAMBURGUESA (se convierte en X) */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* OVERLAY (fondo oscuro) */
+.overlay {
+  display: none;
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS
+======================================== */
+@media (max-width: 768px) {
+  .nav-list {
+    gap: 15px;
+  }
+
+  .nav-list li a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES (MENÚ HAMBURGUESA)
+======================================== */
+@media (max-width: 600px) {
+  /* Mostrar botón hamburguesa */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Menú oculto por defecto */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: #003d7a;
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
+  /* Menú abierto */
+  .nav--abierto {
+    right: 0;
+  }
+
+  /* Lista vertical */
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .nav-list li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-list li a {
+    display: block;
+    width: 100%;
+    padding: 18px 25px;
+    font-size: 16px;
+    border-radius: 0;
+  }
+
+  .nav-list li a:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Overlay visible cuando el menú está abierto */
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES PEQUEÑOS
+======================================== */
+@media (max-width: 480px) {
+  .nav {
+    width: 250px;
+  }
+
+  .nav-list li a {
+    padding: 16px 20px;
+    font-size: 15px;
+  }
 }

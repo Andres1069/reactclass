@@ -60,3 +60,79 @@
   font-size: 15px;
   margin: 4px 0;
 }
+
+/* ========================================
+   RESPONSIVE - TABLETS
+======================================== */
+@media (max-width: 768px) {
+  .consumo {
+    padding: 100px 30px;
+  }
+
+  .consumo__titulo {
+    font-size: 32px;
+  }
+
+  .consumo__descripcion {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .cards-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .card__img {
+    height: 200px;
+  }
+
+  .card__contenido h3 {
+    font-size: 18px;
+  }
+
+  .card__contenido p {
+    font-size: 14px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES
+======================================== */
+@media (max-width: 480px) {
+  .consumo {
+    padding: 80px 20px;
+  }
+
+  .consumo__titulo {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .consumo__descripcion {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .card__img {
+    height: 250px;
+  }
+
+  .card__contenido {
+    padding: 12px;
+  }
+
+  .card__contenido h3 {
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  .card__contenido p {
+    font-size: 13px;
+  }
+}
