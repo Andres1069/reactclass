@@ -1,0 +1,19 @@
+Documento: Instalaciones necesarias para crear y ejecutar el proyecto en React
+
+Este documento explica de manera clara y ordenada todo lo que se
+necesitó instalar para crear y ejecutar correctamente el proyecto React,
+incluyendo dependencias, comandos usados y su propósito.
+
+1.  Crear el proyecto en React Comando: npm create vite@latest
+
+Luego instalar dependencias: npm install
+
+Iniciar servidor: npm run dev
+
+2.  Instalar React Router DOM npm install react-router-dom npm run dev
+
+3.  Instalar react-icons npm install react-icons npm run dev
+
+Resumen de comandos: - npm create vite@latest - npm install - npm run
+dev - npm install react-router-dom - npm run dev - npm install
+react-icons - npm run dev
