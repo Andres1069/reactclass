@@ -1,33 +1,29 @@
 import { useEffect, useState } from "react";
 import "./styles/episodios.css";
 
+interface Episode {
+  id: number;
+  name: string;
+  air_date: string;
+  episode: string;
+  characters: string[];
+}
+
+interface Info {
+  prev: string | null;
+  next: string | null;
+}
+
 export default function Episodios() {
-  const [episodios, setEpisodios] = useState([]);
-  const [pagina, setPagina] = useState(1);
-  const [info, setInfo] = useState(null); // ← Cambiar a null
-  const [imagenes, setImagenes] = useState({});
+  const [episodios, setEpisodios] = useState<Episode[]>([]);
+  const [pagina, setPagina] = useState<number>(1);
+  const [info, setInfo] = useState<Info | null>(null);
+  const [imagenes, setImagenes] = useState<Record<number, string>>({});
 
-  const cargarEpisodios = async (page = 1) => {
-    try {
-      const url = `https://rickandmortyapi.com/api/episode?page=${page}`;
-      const res = await fetch(url);
-      const data = await res.json();
+  const cargarImagenes = async (lista: Episode[]): Promise<void> => {
+    const nuevasImagenes: Record<number, string> = {};
 
-      setEpisodios(data.results);
-      setInfo(data.info);
-
-      // Cargar imagen del primer personaje por episodio
-      cargarImagenes(data.results);
-    } catch (error) {
-      console.error("Error al cargar episodios:", error);
-    }
-  };
-
-  const cargarImagenes = async (lista) => {
-    const nuevasImagenes = {};
-
-    // Para cada episodio
-    for (let episodio of lista) {
+    for (const episodio of lista) {
       if (episodio.characters && episodio.characters.length > 0) {
         const personajeURL = episodio.characters[0];
         try {
@@ -43,8 +39,24 @@ export default function Episodios() {
     setImagenes(nuevasImagenes);
   };
 
+  const cargarEpisodios = async (page: number = 1): Promise<void> => {
+    try {
+      const url = `https://rickandmortyapi.com/api/episode?page=${page}`;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      setEpisodios(data.results);
+      setInfo(data.info);
+
+      await cargarImagenes(data.results);
+    } catch (error) {
+      console.error("Error al cargar episodios:", error);
+    }
+  };
+
   useEffect(() => {
     cargarEpisodios(pagina);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pagina]);
 
   return (
@@ -54,12 +66,10 @@ export default function Episodios() {
         Cada episodio muestra la imagen del primer personaje que aparece en él.
       </p>
 
-      {/* GRID */}
       <div className="episodios__grid">
         {episodios.map((ep) => (
           <div key={ep.id} className="episodio__card">
             
-            {/* Imagen automática */}
             {imagenes[ep.id] && (
               <img 
                 src={imagenes[ep.id]} 
@@ -75,7 +85,6 @@ export default function Episodios() {
         ))}
       </div>
 
-      {/* Paginación */}
       {info && (
         <div className="episodios__paginacion">
           <button disabled={!info.prev} onClick={() => setPagina(pagina - 1)}>

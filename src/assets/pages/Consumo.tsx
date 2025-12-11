@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./styles/consumo.css";
 
+// Define la interfaz del personaje
+interface Character {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  image: string;
+}
+
 // Primero defines el componente PersonajesLista
 function PersonajesLista() {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState<Character[]>([]);
 
   useEffect(() => {
     fetch("https://rickandmortyapi.com/api/character")

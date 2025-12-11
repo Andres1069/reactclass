@@ -1,10 +1,25 @@
 import "./styles/envio.css";
 import React, { useState } from "react";
 
+interface Character {
+  id: number;
+  name: string;
+  image: string;
+  status: string;
+  species: string;
+  gender: string;
+  origin: {
+    name: string;
+  };
+  location: {
+    name: string;
+  };
+}
+
 export default function Envio() {
-  const [id, setId] = useState("");
-  const [character, setCharacter] = useState(null);
-  const [error, setError] = useState("");
+  const [id, setId] = useState<string>("");
+  const [character, setCharacter] = useState<Character | null>(null);
+  const [error, setError] = useState<string>("");
 
   const fetchCharacter = async () => {
     setError("");
@@ -24,10 +39,14 @@ export default function Envio() {
         throw new Error(`No se encontró el personaje con ID ${parsedId}.`);
       }
 
-      const data = await response.json();
+      const data: Character = await response.json();
       setCharacter(data);
     } catch (err) {
-      setError(err.message);
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Ocurrió un error desconocido");
+      }
       setCharacter(null);
     }
   };
