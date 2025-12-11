@@ -1,0 +1,120 @@
+/* CONTENEDOR PRINCIPAL */
+.envio {
+  padding: 120px 40px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.envio__titulo {
+  font-size: 36px;
+  font-weight: 800;
+  color: #003b7a;
+  margin-bottom: 10px;
+}
+
+.envio__descripcion {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* FORMULARIO */
+.envio__busqueda {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.envio__input {
+  padding: 10px 12px;
+  width: 220px;
+  border: 2px solid #cfd9e6;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.envio__input:focus {
+  border-color: #004a91;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 74, 145, 0.4);
+}
+
+.envio__boton {
+  padding: 10px 18px;
+  background-color: #006bb3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.envio__boton:hover {
+  background-color: #005999;
+}
+
+/* ERROR */
+.envio__error {
+  color: #c62828;
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+/* TARJETA */
+.envio__card {
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+  max-width: 420px;
+}
+
+.envio__card h2 {
+  margin-bottom: 10px;
+  color: #003b7a;
+  font-size: 24px;
+}
+
+.envio__img {
+  width: 100%;
+  height: 260px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.envio__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.envio__lista li {
+  margin: 6px 0;
+  font-size: 16px;
+  color: #444;
+}
+
+.envio__lista strong {
+  color: #003b7a;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .envio__busqueda {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .envio__input {
+    width: 100%;
+  }
+
+  .envio__boton {
+    width: 100%;
+  }
+}
